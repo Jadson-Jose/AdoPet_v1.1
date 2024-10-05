@@ -5,12 +5,12 @@ from .forms import AnimalForms
 
 def animal_list(request):
     animals = Animal.objects.all()
-    return render(request, 'animals/list.html', {'animals': animals})
+    return render(request, 'list.html', {'animals': animals})
 
 
 def detail_animal(request, pk):
     animal = get_object_or_404(Animal, pk=pk)
-    return render(request, 'animals/detail.html', {'animal': animal})
+    return render(request, 'detail.html', {'animal': animal})
 
 
 def create_animal(request):
@@ -21,7 +21,7 @@ def create_animal(request):
             return redirect('animals_list')
     else:
         form = AnimalForms()
-    return render(request, 'animals/form.html', {'form': form})
+    return render(request, 'form.html', {'form': form})
 
 
 def edit_animal(request, pk):
@@ -33,7 +33,7 @@ def edit_animal(request, pk):
             return redirect('detail_animal', pk=pk)
     else:
         form = AnimalForms(instance=animal)
-    return render(request, 'animals/form.html', {'form': form})
+    return render(request, 'form.html', {'form': form})
 
 
 def delete_animal(request, pk):
@@ -41,4 +41,4 @@ def delete_animal(request, pk):
     if request.method == 'POST':
         animal.delete()
         return redirect('list_animal')
-    return render(request, 'animals/confirm_delete.html', {'animal': animal})
+    return render(request, 'confirm_delete.html', {'animal': animal})

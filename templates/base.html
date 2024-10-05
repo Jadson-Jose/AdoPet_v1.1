@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Sistema de Adoção{% endblock %}</title>
     <!-- Inclua seus arquivos CSS aqui -->
+    <link rel="stylesheet" href="{% static 'animal_list/css/list.css' %}">
+
 </head>
 <body>
     <header>
         <h1>Sistema de Adoção de Animais</h1>
         <nav>
-            <a href="{% url 'lista_animais' %}">Animais</a>
+            <a href="{% url 'animal_list' %}">Animais</a>
             {% comment %} <a href="{% url 'lista_adotantes' %}">Adotantes</a> {% endcomment %}
             {% comment %} <a href="{% url 'lista_abrigos' %}">Abrigos</a> {% endcomment %}
         </nav>
@@ -23,7 +25,7 @@
     </main>
     
     <footer>
-        <p>&copy; 2023 - Seu Nome/Instituição</p>
+        <p>&copy; 2024 - Jadson Silva/Pets em Foco</p>
     </footer>
     <!-- Inclua seus arquivos JavaScript aqui -->
 </body>

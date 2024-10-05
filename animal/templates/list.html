@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+
+
+{% block title %}Lista de Animais{% endblock %}
+
+
+<body>
+    
+
+    {% block content %}
+        <h2>Animais Disponíveis para Adoção</h2>
+        <a class="add-button" href="{% url 'create_animal' %}">Adicionar Novo Animal</a>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Espécie</th>
+                <th>Raça</th>
+                <th>Idade</th>
+                <th>Porte</th>
+                <th>Ações</th>
+            </tr>
+            {% for animal in animals %}
+            <tr>
+                <td>{{ animal.name }}</td>
+                <td>{{ animal.especie }}</td>
+                <td>{{ animal.raca }}</td>
+                <td>{{ animal.age }} anos</td>
+                <td>{{ animal.porte }}</td>
+                <td>
+                    <a href="{% url 'detail_animal' animal.pk %}">Detalhes</a>
+                    <a href="{% url 'edit_animal' animal.pk %}">Editar</a>
+                    <a href="{% url 'delete_animal' animal.pk %}">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">Nenhum animal cadastrado.</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endblock %} 
+</body>

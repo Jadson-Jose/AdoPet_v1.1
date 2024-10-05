@@ -1,18 +1,23 @@
 body {
-  background-image: url("{ % static 'animal_list/img/fundo.jpg'% }");
-  background-size: cover;
-  background-position: center;
   font-family: "Arial", sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: #f3f4ed;
   margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, #f2f9d2, #c1d1a1, #8aa378);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: #333;
+  min-height: 100vh;
   text-align: center;
+}
+
+h1 {
+  color: #3b4a2d;
 }
 
 h2 {
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: #5d6d3b;
   margin-top: 20px;
 }
 
@@ -20,7 +25,7 @@ h2 {
   display: inline-block;
   margin: 20px;
   padding: 10px 20px;
-  background-color: #3498db;
+  background-color: #8aa378;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -28,7 +33,7 @@ h2 {
 }
 
 .add-button:hover {
-  background-color: #2980b9;
+  background-color: #6f8b5a;
 }
 
 table {
@@ -37,6 +42,8 @@ table {
   border-collapse: collapse;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
   background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th,
@@ -47,30 +54,30 @@ td {
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: #c1d1a1;
   font-weight: bold;
-  color: #555;
+  color: #3b4a2d;
 }
 
 tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #edf0e5;
 }
 
 tr:hover {
   background-color: #f1f1f1;
 }
 
-.actions a {
-  color: #3498db;
+a {
+  color: #8aa378;
   padding: 5px 10px;
-  border: 1px solid #3498db;
-  border-radius: 3px;
+  border: 1px solid #8aa378;
+  border-radius: 5px;
   text-decoration: none;
   transition: backgound-color 0.3s ease, color 0.3 ease;
 }
 
-.actions a:hover {
-  background-color: #3498db;
+a:hover {
+  background-color: #8aa378;
   color: white;
 }
 

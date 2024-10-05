@@ -1,6 +1,7 @@
 /* Geral style */
 
 body{
+    background-image: url("{% static 'animal/img/fundo.webp' %}");
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;

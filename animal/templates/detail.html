@@ -1,0 +1,58 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+
+{% load static %}
+
+{% block headd %}
+    <link rel="stylesheet" href="{% static 'animal_list/css/detail_animal.css' %}">
+{% endblock headd %}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Animal</title>
+    <link rel="stylesheet" href="{% static 'animal/css/detalhe_animal.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalhes do Animal</h1>
+        
+        <div class="animal-card">
+            <div class="animal-header">
+                <h2>{{ animal.nome }}</h2>
+                <p><strong>Espécie:</strong> {{ animal.especie }}</p>
+            </div>
+
+            <div class="animal-content">
+                <div class="animal-image">
+                    <!-- Exibe a imagem do animal -->
+                    <img src="{{ animal.photo.url }}" alt="Imagem de {{ animal.name }}">
+                </div>
+                
+                <div class="animal-info">
+                    <p><strong>Raça:</strong> {{ animal.raca }}</p>
+                    <p><strong>Idade:</strong> {{ animal.age }} anos</p>
+                    <p><strong>Porte:</strong> {{ animal.porte }}</p>
+                    <p><strong>Cor:</strong> {{ animal.colour }}</p>
+                    <p><strong>Descrição:</strong> {{ animal.description }}</p>
+                    <p><strong>Abrigo:</strong> {{ animal.shelter.name }}</p>
+                </div>
+            </div>
+
+            <!-- Botões de ação -->
+            <div class="action-buttons">
+                <a href="{% url 'edit_animal' animal.pk %}" class="btn-edit">Editar</a>
+                <a href="{% url 'delete_animal' animal.pk %}" class="btn-delete">Excluir</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 - Jadson Silva/Pets em Foco</p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+
+
+{% load static %}
+
+{% block headd %}
+    <link rel="stylesheet" href="{% static 'animal_list/css/edit_animal.css' %}">
+{% endblock headd %}
+
+    <h2>Editar Animal</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{ animal.name}}">
+
+        <label for="especie">Espécie:</label>
+        <input type="text" id="especie" name="especie" value="{{ animal.especie }}">
+
+        <label for="raca">Raça:</label>
+        <input type="text" id="raca" name="raca" value="{{ animal.raca }}">
+
+        <label for="idade">Idade:</label>
+        <input type="text" id="idade" name="idade" value="{{ animal.age }}">
+
+        <label for="porte">Porte:</label>
+        <input type="text" id="porte" name="porte" value="{{ animal.porte }}">
+
+        <label for="cor">Cor:</label>
+        <input type="text" id="cor" name="cor" value="{{ animal.colour }}">
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" rows="4">{{ animal.description }}</textarea>
+
+        <label for="foto">Foto Atual:</label>
+        <div class="image-preview">
+            <p>{{ animal.photo }}</p>
+        </div>
+        <input type="file" id="foto" name="foto">
+
+        <label for="abrigo">Abrigo:</label>
+        <select id="abrigo" name="abrigo">
+            <option value="Caninos House">Caninos House</option>
+        </select>
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+        <a href="{% url 'animal_list' %}" class="cancel-btn">Cancelar</a>
+    </form>
+
+    <footer>
+        © 2023 - Seu Nome/Instituição
+    </footer>
+
+</body>
+</html>

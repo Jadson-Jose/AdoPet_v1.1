@@ -41,5 +41,5 @@ def delete_animal(request, pk):
     animal = get_object_or_404(Animal, pk=pk)
     if request.method == 'POST':
         animal.delete()
-        return redirect('list_animal')
+        return redirect('animal_list')
     return render(request, 'confirm_delete.html', {'animal': animal})

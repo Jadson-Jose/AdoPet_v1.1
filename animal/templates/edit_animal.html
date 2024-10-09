@@ -1,4 +1,4 @@
-
+{% comment %} 
 
 {% load static %}
 
@@ -33,7 +33,12 @@
 
         <label for="foto">Foto Atual:</label>
         <div class="image-preview">
-            <p>{{ animal.photo }}</p>
+            <p>Foto Atual:</p>
+                {% if animal.photo %}
+                    <img src="{{ animal.photo.url }}" alt="Foto de {{ animal.name }}" width="300" height="200">
+                {% else %}
+                    <p>Nenhuma foto disponível.</p>
+                {% endif %}
         </div>
         <input type="file" id="foto" name="foto">
 
@@ -41,7 +46,7 @@
         <select id="abrigo" name="abrigo">
             <option value="Caninos House">Caninos House</option>
         </select>
-        <button type="submit" value="edit_animal">Salvar</button>
+        <button type="submit" value="animal_list">Salvar</button>
         <a href="{% url 'animal_list' %}" class="cancel-btn">Cancelar</a>
     </form>
 
@@ -49,5 +54,59 @@
         © 2023 - Seu Nome/Instituição
     </footer>
 
+</body>
+</html>
+
+ {% endcomment %}
+
+
+ {% load static %}
+
+ {% block headd %}
+     <link rel="stylesheet" href="{% static 'animal_list/css/edit_animal.css' %}">
+ {% endblock headd %}
+    <div class="container">
+        <h1>Editar Animal</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" value="{{ animal.name }}">
+
+            <label for="especie">Espécie:</label>
+            <input type="text" id="especie" name="especie" value="{{ animal.especie }}">
+
+            <label for="raca">Raça:</label>
+            <input type="text" id="raca" name="raca" value="{{ animal.raca }}">
+
+            <label for="age">Idade:</label>
+            <input type="number" id="age" name="age" value="{{ animal.age }}">
+
+            <label for="porte">Porte:</label>
+            <input type="text" id="porte" name="porte" value="{{ animal.porte }}">
+
+            <label for="cor">Cor:</label>
+            <input type="text" id="cor" name="cor" value="{{ animal.cor }}">
+
+            <label for="description">Descrição:</label>
+            <textarea id="description" name="description">{{ animal.description }}</textarea>
+
+            <label>Foto Atual:</label>
+            <div class="animal-image">
+                {% if animal.photo %}
+                    <img src="{{ animal.photo.url }}" alt="Foto de {{ animal.name }}">
+                {% else %}
+                    <p>Nenhuma foto disponível.</p>
+                {% endif %}
+            </div>
+
+            <label for="photo">Atualizar Foto:</label>
+            <input type="file" name="photo" id="photo">
+
+            <div>
+                <button type="submit">Salvar</button>
+                <button type="button" class="cancel" onclick="window.location.href='{% url 'animal_list' %}'">Cancelar</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

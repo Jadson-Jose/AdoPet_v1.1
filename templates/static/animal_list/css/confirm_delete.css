@@ -1,0 +1,71 @@
+/* Estilo básico para o layout */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f2f2f2 30%, #a6cfd5 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Estilo do container principal */
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Estilo do título */
+h2 {
+    color: #4d4d4d;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Texto de confirmação */
+p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Alinhamento dos botões */
+form {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os botões */
+}
+
+/* Botões de ação */
+button, a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button {
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+}
+
+a {
+    background-color: #4caf50;
+    color: white;
+}
+
+button:hover {
+    background-color: #ff3333;
+}
+
+a:hover {
+    background-color: #45a049;
+}

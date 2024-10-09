@@ -22,7 +22,7 @@
         
         <div class="animal-card">
             <div class="animal-header">
-                <h2>{{ animal.nome }}</h2>
+                <h2>{{ animal.name }}</h2>
                 <p><strong>Espécie:</strong> {{ animal.especie }}</p>
             </div>
 
@@ -45,8 +45,8 @@
             <!-- Botões de ação -->
             <div class="action-buttons">
                 <a href="{% url 'edit_animal' animal.pk %}" class="btn-edit">Editar</a>
-                <a href="{% url 'delete_animal' animal.pk %}" class="btn-delete">Excluir</a>
-                <a href="{% url 'detail_animal' animal.pk %}">Ver Detalhes</a>
+                <a href="{% url 'delete_animal' animal.pk %}" class="btn-delete">Deletar</a>
+                <a href="{% url 'animal_list' %}" class="btn-edit">Voltar</a>
             </div>
         </div>
     </div>

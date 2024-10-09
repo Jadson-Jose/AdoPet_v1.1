@@ -1,0 +1,35 @@
+{% load static %}
+
+{% block headd %}
+    <link rel="stylesheet" href="{% static 'animal_list/css/confirm_delete.css' %}">
+{% endblock headd %}
+{% block content %}
+
+<body>
+    <div class="container">
+        <!-- Título da página -->
+        <h1>Confirmar Deleção</h1>
+
+        <!-- Mensagem de alerta para confirmar a ação -->
+        <div class="alert">
+            <h2>Tem certeza que deseja deletar o animal "{{ animal.name }}"?</h2>
+            <p>Essa ação é irreversível e o animal será removido permanentemente do sistema.</p>
+        </div>
+
+        <!-- Botões de confirmação e cancelamento -->
+        <div class="buttons">
+            <!-- Formulário com CSRF token e botão de confirmação de deleção -->
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-delete">Deletar</button>
+            </form>
+
+            <!-- Botão para cancelar e voltar ao detalhe do animal -->
+            <a href="{% url 'detail_animal' animal.pk %}" class="btn-cancel">Cancelar</a>
+        </div>
+    </div>
+</body>
+
+</html>
+
+{% endblock content %}

@@ -30,10 +30,11 @@ def edit_animal(request, pk):
         form = AnimalForms(request.POST, request.FILES, instance=animal)
         if form.is_valid():
             form.save()
-            return redirect('animal_list')
+            return redirect('animal_list', pk=pk)
     else:
         form = AnimalForms(instance=animal)
     return render(request, 'edit_animal.html', {'form': form, 'animal':animal})
+
 
 
 def delete_animal(request, pk):

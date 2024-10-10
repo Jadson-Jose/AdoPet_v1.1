@@ -29,7 +29,12 @@
             <div class="animal-content">
                 <div class="animal-image">
                     <!-- Exibe a imagem do animal -->
-                    <img src="{{ animal.photo.url }}" alt="Imagem de {{ animal.name }}">
+                    {% if animal.photo %}
+                    <img src="{{ animal.photo.url }}" alt="Foto de {{ animal.name }}">
+                        {% else %}
+                            <p>Sem foto disponível para este animal.</p>
+                        {% endif %}
+
                 </div>
                 
                 <div class="animal-info">

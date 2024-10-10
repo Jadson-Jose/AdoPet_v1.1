@@ -1,1 +1,43 @@
-<h1>Lista de adotantes</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Lista de Adotantes{% endblock %}
+
+
+<body>
+    
+
+    {% block content %}
+        <h2>Lista de Adotantes</h2>
+        <a class="add-button" href="{% url 'create_adopter' %}">Novo Adotante</a>
+        <a class="add-button" href="{% url 'animal_list' %}">Lista de Animais</a>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+            </tr>
+            {% for adopter in adopters %}
+            <tr>
+                <td>{{ adopter.name }}</td>
+                <td>{{ adopter.email }}</td>
+                <td>{{ adopter.phone}}</td>
+                <td>{{ adopter.address }}</td>
+                <td>{{ adopter.city }}</td>
+                <td>{{ adopter.state }}</td>
+                <td>
+                    <a href="{% url 'detail_adopter' adopter.pk %}">Detalhes</a>
+                    <a href="{% url 'edit_adopter' adopter.pk %}">Editar</a>
+                    <a href="{% url 'delete_adopter' adopter.pk %}">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">Nenhum adotante cadastrado.</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endblock %} 
+</body>

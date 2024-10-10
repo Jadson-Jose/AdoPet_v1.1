@@ -4,8 +4,8 @@ from .forms import AdopterForm
 
 
 def adopter_list(request):
-    adopter = Adopter.objects.all()
-    return render(request, 'adopter_list.html', {'adopter': adopter})
+    adopters = Adopter.objects.all()
+    return render(request, 'adopter_list.html', {'adopters': adopters})
 
 
 def detail_adopter(request, pk):

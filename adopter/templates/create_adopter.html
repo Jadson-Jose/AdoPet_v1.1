@@ -1,1 +1,69 @@
-<h1>Cadstrar Novo Adotante</h1>
+{% load static %}
+
+{% block headd %}
+    <link rel="stylesheet" href="{% static 'adopter/css/create_adopter.css' %}">
+{% endblock headd %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Adotante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrar Adotante</h1>
+        <form method="POST" enctype="multipart/form-data" class="form-container">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.name.label_tag }}<br>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }}<br>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                {{ form.phone.label_tag }}<br>
+                {{ form.phone }}
+            </div>
+            <div class="form-group">
+                {{ form.address.label_tag }}<br>
+                {{ form.address }}
+            </div>
+            <div class="form-group">
+                {{ form.number.label_tag }}<br>
+                {{ form.number }}
+            </div>
+            <div class="form-group">
+                {{ form.complement.label_tag }}<br>
+                {{ form.complement }}
+            </div>
+            <div class="form-group">
+                {{ form.neighborhood.label_tag }}<br>
+                {{ form.neighborhood }}
+            </div>
+            <div class="form-group">
+                {{ form.city.label_tag }}<br>
+                {{ form.city }}
+            </div>
+            <div class="form-group">
+                {{ form.state.label_tag }}<br>
+                {{ form.state }}
+            </div>
+            <div class="form-group">
+                {{ form.cep.label_tag }}<br>
+                {{ form.cep }}
+            </div>
+            <div class="form-group">
+                {{ form.date_of_birth.label_tag }}<br>
+                {{ form.date_of_birth }}
+            </div>
+
+            <button type="submit" class="btn-submit">Salvar Adotante</button>
+        </form>
+    </div>
+</body>
+</html>

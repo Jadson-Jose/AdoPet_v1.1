@@ -19,9 +19,9 @@ def create_adopter(request):
         if form.is_valid():
             form.save()
             return redirect('adopter_list')
-        else:
-            form = AdopterForm()
-        return render(request, 'create_Adopter.html', {'form': form})
+    else:
+        form = AdopterForm()
+    return render(request, 'create_Adopter.html', {'form': form})
 
 
 def edit_adopter(request, pk):

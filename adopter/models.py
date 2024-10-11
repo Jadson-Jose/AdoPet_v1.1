@@ -16,7 +16,7 @@ class Adopter(models.Model):
         'SP', 'São Paulo'), ('RJ', 'Rio de Janeiro'), ('MG', 'Minas Gerais')])
     cep = models.CharField(max_length=8, validators=[RegexValidator(
         regex=r'^\d{8}$', message="O CEP deve ter 8 dígitos.")])
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name

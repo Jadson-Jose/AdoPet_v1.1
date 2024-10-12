@@ -1,4 +1,29 @@
-<h1>Detalhes do Adotante</h1>
-<p>Nome: {{ adopter.name }}</p>
-<p>Email: {{ adopter.email }}</p>
-<p>Telefone: {{ adopter.phone }}</p>
+{% load static %}
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Detalhes do Adotante</title>
+<link rel="stylesheet" href="{% static 'adopter/css/detail_adopter.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Detalhes do Adotante</h1>
+    </div>
+
+    <div class="adopter-details">
+        <h2>{{ adopter.name }}</h2>
+        <p><strong>Email:</strong> {{ adopter.email }}</p>
+        <p><strong>Telefone:</strong> {{ adopter.phone }}</p>
+        <p><strong>Endereço:</strong> {{ adopter.address }}, {{ adopter.number }} - {{ adopter.neighborhood }}</p>
+        <p><strong>Cidade:</strong> {{ adopter.city }} - {{ adopter.state }}</p>
+        <p><strong>CEP:</strong> {{ adopter.cep }}</p>
+        <p><strong>Data de Nascimento:</strong> {{ adopter.date_of_birth }}</p>
+    </div>
+
+    <div class="actions">
+        <a href="{% url 'adopter_list' %}" class="btn">Voltar para a Lista</a>
+    </div>
+</div>
+</body>
+</html>
+

@@ -44,7 +44,7 @@ class AdopterListView(TestCase):
             date_of_birth='1980-01-01'
         )
 
-    def test_adopter_lis_view(self):
+    def test_adopter_list_view(self):
 
         # Fazendo uma requisição GET para a URL da view 'adopter_list'
         response = self.client.get(reverse('adopter_list'))
@@ -67,3 +67,43 @@ class AdopterListView(TestCase):
         # Verificando se os adotantes criados aparecem na lista
         self.assertEqual(len(response.context['adopters']), 1)
         self.assertContains(response, 'Jadson')
+
+
+
+class DetailAdopterViewTest(TestCase):
+
+    def setUp(self):
+        # Criar um adotante de exemplo no banco de dados de teste
+        self.adopter = Adopter.objects.create(
+            name='Carlos',
+            email='carlos@example.com',
+            phone='+5511999999999',
+            address='Rua 123',
+            number='10',
+            neighborhood='Centro',
+            city='São Paulo',
+            state='SP',
+            cep='12345678',
+            date_of_birth='1980-01-01'
+        )
+
+    def test_detail_adopter_view(self):
+        # Fazendo uma requisição GET para a view 'detail_adopter'
+        response = self.client.get(reverse('detail_adopter', args=[self.adopter.pk]))
+
+        # Verificando se o status da resposta é 200 (OK)
+        self.assertEqual(response.status_code, 200)
+
+        # Verificando se o template correto foi usado
+        self.assertTemplateUsed(response, 'detail_adopter.html')
+
+        # Verificando se o adotante correto foi passado no contexto
+        self.assertEqual(response.context['adopter'], self.adopter)
+
+        # Verificando se o nome do adotante "Carlos" aparece na resposta
+        self.assertContains(response, 'Carlos')
+
+        # Verificando se o email do adotante está sendo exibido
+        self.assertContains(response, 'carlos@example.com')
+
+

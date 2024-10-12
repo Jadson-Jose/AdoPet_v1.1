@@ -29,7 +29,7 @@ def edit_adopter(request, pk):
     if request.method == 'POST':
         form = AdopterForm(request.POST, request.FILES, instance=adopter)
         if form.is_valid():
-            form.sava()
+            form.save()
             return redirect('adopter_list')
     else:
         form = AdopterForm(instance=adopter)
@@ -41,4 +41,4 @@ def delete_adopter(request, pk):
     if request.method == 'POST':
         adopter.delete()
         return redirect('adopter_list')
-    return render(request, 'confirm_delete.html', {'adopter': adopter})
+    return render(request, 'delete_adopter.html', {'adopter': adopter})

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Lista de Abrigos{% endblock %}
+
+
+<body>
+    
+
+    {% block content %}
+        <h2>Lista de Abrigos</h2>
+        <a class="add-button" href="{% url 'create_adopter' %}">Novo Abrigo</a>
+        <a class="add-button" href="{% url 'animal_list' %}">Lista de Animais</a>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+            </tr>
+            {% for shelter in shelters %}
+            <tr>
+                <td>{{ shelter.name }}</td>
+                <td>{{ shelter.email }}</td>
+                <td>{{ shelter.phone}}</td>
+                <td>{{ shelter.address }}</td>
+                <td>{{ shelter.city }}</td>
+                <td>{{ shelter.state }}</td>
+                <td>
+                    <a href="{% url 'detail_shelter' shelter.pk %}">Detalhes</a>
+                    <a href="{% url 'edit_shelter' shelter.pk %}">Editar</a>
+                    <a href="{% url 'delete_shelter' shelter.pk %}">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">Nenhum abrigo cadastrado.</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endblock %} 
+</body>

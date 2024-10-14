@@ -7,6 +7,7 @@ class Shelter(models.Model):
     state = models.CharField(max_length=2, default='cidade desconhecida', choices=[(
         'SP', 'São Paulo'), ('RJ', 'Rio de Janeiro'), ('MG', 'Minas Gerais')]) 
     address = models.CharField(max_length=255)
+    number = models.CharField(max_length=10, default=0000)
     cep = models.CharField(max_length=8, validators=[RegexValidator(
         regex=r'^\d{8}$', message="O CEP deve ter 8 dígitos.")])
     phone = models.CharField(max_length=20)

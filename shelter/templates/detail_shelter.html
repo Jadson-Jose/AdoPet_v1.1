@@ -27,7 +27,7 @@
 
             <div class="animal-content">
                 <div class="animal-image">
-                    <!-- Exibe a imagem do animal -->
+                    <!-- Exibe a abrigo do animal -->
                     {% if shelter.photo %}
                         <img src="{{ shelter.photo.url }}" alt="Foto de {{ shelter.name }}">
                     {% else %}
@@ -39,9 +39,11 @@
                 <div class="animal-info">
                     <p><strong>Cidade:</strong> {{ shelter.city }}</p>
                     <p><strong>Estado:</strong> {{ shelter.state }}</p>
-                    <p><strong>Endreço:</strong> {{ shelter.address}}</p>
+                    <p><strong>Endereço:</strong> {{ shelter.address}}</p>
+                    <p><strong>Numero: </strong>{{ shelter.number }} </p>
                     <p><strong>CEP:</strong> {{ shelter.cep }}</p>
                     <p><strong>Email:</strong> {{ shelter.email }}</p>
+                    <p><strong>Telefone:</strong> {{ shelter.phone }}</p>
                 </div>
             </div>
 
@@ -49,7 +51,7 @@
             <div class="action-buttons">
                 <a href="{% url 'edit_shelter' shelter.pk %}" class="btn-edit">Editar</a>
                 <a href="{% url 'delete_shelter' shelter.pk %}" class="btn-delete">Deletar</a>
-                <a href="{% url 'animal_list' %}" class="btn-edit">Voltar</a>
+                <a href="{% url 'shelter_list' %}" class="btn-edit">Voltar</a>
             </div>
         </div>
     </div>

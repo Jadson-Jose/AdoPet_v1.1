@@ -13,43 +13,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Animal</title>
+    <title>Detalhes do Abrigo</title>
     
 </head>
 <body>
     <div class="container">
-        <h1>Detalhes do Animal</h1>
+        <h1>Detalhes do Abrigo</h1>
         
         <div class="animal-card">
             <div class="animal-header">
-                <h2><strong>Nome: </strong>{{ animal.name }}</h2>
+                <h2><strong>Nome: </strong>{{ shelter.name }}</h2>
             </div>
 
             <div class="animal-content">
                 <div class="animal-image">
                     <!-- Exibe a imagem do animal -->
-                    {% if animal.photo %}
-                        <img src="{{ animal.photo.url }}" alt="Foto de {{ animal.name }}">
+                    {% if shelter.photo %}
+                        <img src="{{ shelter.photo.url }}" alt="Foto de {{ shelter.name }}">
                     {% else %}
-                        <p>Sem foto disponível para este animal.</p>
+                        <p>Sem foto disponível para este abrigo.</p>
                     {% endif %}
 
                 </div>
                 
                 <div class="animal-info">
-                    <p><strong>Raça:</strong> {{ animal.raca }}</p>
-                    <p><strong>Idade:</strong> {{ animal.age }} anos</p>
-                    <p><strong>Porte:</strong> {{ animal.porte }}</p>
-                    <p><strong>Cor:</strong> {{ animal.colour }}</p>
-                    <p><strong>Descrição:</strong> {{ animal.description }}</p>
-                    <p><strong>Abrigo:</strong> {{ animal.shelter.name }}</p>
+                    <p><strong>Cidade:</strong> {{ shelter.city }}</p>
+                    <p><strong>Estado:</strong> {{ shelter.state }}</p>
+                    <p><strong>Endreço:</strong> {{ shelter.address}}</p>
+                    <p><strong>CEP:</strong> {{ shelter.cep }}</p>
+                    <p><strong>Email:</strong> {{ shelter.email }}</p>
                 </div>
             </div>
 
             <!-- Botões de ação -->
             <div class="action-buttons">
-                <a href="{% url 'edit_animal' animal.pk %}" class="btn-edit">Editar</a>
-                <a href="{% url 'delete_animal' animal.pk %}" class="btn-delete">Deletar</a>
+                <a href="{% url 'edit_shelter' shelter.pk %}" class="btn-edit">Editar</a>
+                <a href="{% url 'delete_shelter' shelter.pk %}" class="btn-delete">Deletar</a>
                 <a href="{% url 'animal_list' %}" class="btn-edit">Voltar</a>
             </div>
         </div>

@@ -14,7 +14,7 @@ class Adopter(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=2, choices=[(
         'SP', 'São Paulo'), ('RJ', 'Rio de Janeiro'), ('MG', 'Minas Gerais')])
-    cep = models.CharField(max_length=8, validators=[RegexValidator(
+    cep = models.CharField(max_length=9, default='00000-000', validators=[RegexValidator(
         regex=r'^\d{8}$', message="O CEP deve ter 8 dígitos.")])
     date_of_birth = models.DateField(null=True, blank=True)
 

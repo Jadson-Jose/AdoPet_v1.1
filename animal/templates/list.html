@@ -10,6 +10,7 @@
         <h2>Animais Disponíveis para Adoção</h2>
         <a class="add-button" href="{% url 'create_animal' %}">Adicionar Novo Animal</a>
         <a class="add-button" href="{% url 'adopter_list' %}">Lista de Adotantes</a>
+        <a class="add-button" href="{% url 'shelter_list' %}">Lista de Abrigos</a>
         <table>
             <tr>
                 <th>Nome</th>
@@ -17,6 +18,7 @@
                 <th>Raça</th>
                 <th>Idade</th>
                 <th>Porte</th>
+                <th>Cor</th>
                 <th>Ações</th>
             </tr>
             {% for animal in animals %}
@@ -26,6 +28,7 @@
                 <td>{{ animal.raca }}</td>
                 <td>{{ animal.age }} anos</td>
                 <td>{{ animal.porte }}</td>
+                <td>{{ animal.colour }}</td>
                 <td>
                     <a href="{% url 'detail_animal' animal.pk %}">Detalhes</a>
                     <a href="{% url 'edit_animal' animal.pk %}">Editar</a>

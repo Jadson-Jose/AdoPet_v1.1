@@ -1,68 +1,67 @@
 {% load static %}
 
 {% block headd %}
-    <link rel="stylesheet" href="{% static 'adopter/css/create_adopter.css' %}">
+    <link rel="stylesheet" href="{% static 'animal_list/css/create_animal.css' %}">
 {% endblock headd %}
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Adotante</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
     <div class="container">
-        <h1>Cadastrar Adotante</h1>
-        <form method="POST" enctype="multipart/form-data" class="form-container">
+        <h1>Cadastrar Novo Adotante</h1>
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group">
-                {{ form.name.label_tag }}<br>
-                {{ form.name }}
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-                {{ form.email.label_tag }}<br>
-                {{ form.email }}
+                <label for="Email">Email:</label>
+                <input type="text" id="Email" name="Email" required>
             </div>
             <div class="form-group">
-                {{ form.phone.label_tag }}<br>
-                {{ form.phone }}
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="Telefone" name="Telefone" required>
             </div>
             <div class="form-group">
-                {{ form.address.label_tag }}<br>
-                {{ form.address }}
+                <label for="endereço">Endereço:</label>
+                <input type="text" id="Endereço" name="Endereço" required>
             </div>
             <div class="form-group">
-                {{ form.number.label_tag }}<br>
-                {{ form.number }}
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" name="numero" required>
             </div>
             <div class="form-group">
-                {{ form.complement.label_tag }}<br>
-                {{ form.complement }}
+                <label for="complemento">Complemento:</label>
+                <input type="text" id="complemento" name="complemento" required>
             </div>
             <div class="form-group">
-                {{ form.neighborhood.label_tag }}<br>
-                {{ form.neighborhood }}
+                <label for="state">Estado:</label>
+                <select id="state" name="state" required>
+                    <option value="SP">São Paulo</option>
+                    <option value="RJ">Ria de Janeiro</option>
+                    <option value="MG">Minas Gerais</option>
+                </select>
+                
+               
             </div>
             <div class="form-group">
-                {{ form.city.label_tag }}<br>
-                {{ form.city }}
+                <label for="cep">CEP:</label>
+                <input type="number" id="cep" name="cep" required>
             </div>
-            <div class="form-group">
-                {{ form.state.label_tag }}<br>
-                {{ form.state }}
+            {% comment %} <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" rows="5" required></textarea>
+            </div> {% endcomment %}
+            {% comment %} <div class="form-group">
+                <label for="foto">Foto:</label>
+                <input type="file" id="foto" name="foto">
+            </div> {% endcomment %}
+            {% comment %} <div class="form-group">
+                <label for="abrigo">Abrigo:</label>
+                <input type="text" id="abrigo" name="abrigo" required>
+            </div> {% endcomment %}
+            <div class="buttons">
+                <button type="submit" class="btn-save">Salvar</button>
+                <a href="{% url 'animal_list' %}" class="btn-cancel">Cancelar</a>
             </div>
-            <div class="form-group">
-                {{ form.cep.label_tag }}<br>
-                {{ form.cep }}
-            </div>
-            <div class="form-group">
-                {{ form.date_of_birth.label_tag }}<br>
-                {{ form.date_of_birth }}
-            </div>
-
-            <button type="submit" class="btn-submit">Salvar Adotante</button>
         </form>
     </div>
 </body>

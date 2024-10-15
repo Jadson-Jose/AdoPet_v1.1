@@ -5,4 +5,5 @@ from .models import Shelter
 class ShelterForm(forms.ModelForm):
     class Meta:
         model = Shelter
-        fields = '__all__'
+        fields = felds = ['name', 'city', 'state', 'address', 'number',
+                 'cep', 'phone', 'email', 'photo']

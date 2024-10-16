@@ -4,21 +4,6 @@ from shelter.models import Shelter
 
 
 class Animal (models.Model):
-
-    TYPES = [
-        ('C', 'Cachorro'),
-        ('G', 'Gato'),
-        ('P', 'Pássaro'),
-        ('R', 'Roedor'),
-        ('O', 'Outros'),
-    ]
-
-    PORTES = [
-        ('P', 'Pequeno'),
-        ('M', 'Médio'),
-        ('G', 'Grande'),
-    ]
-
     name = models.CharField(max_length=100)
     especie = models.CharField(max_length=50)  # Exemplo: Cachorro, Gato
     raca = models.CharField(max_length=50, blank=True, null=True)

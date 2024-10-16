@@ -1,58 +1,56 @@
 {% load static %}
 
 {% block headd %}
-    <link rel="stylesheet" href="{% static 'animal_list/css/create_animal.css' %}">
+    <link rel="stylesheet" href="{% static 'animal_list/css/edit_animal.css' %}">
 {% endblock headd %}
+   <div class="container">
+       <h1>Cadastrar Animal</h1>
+       <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+           <label for="name">Nome:</label>
+           <input type="text" id="name" name="name">
 
-    <div class="container">
-        <h1>Cadastrar Novo Animal</h1>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="especie">Espécie:</label>
-                <input type="text" id="especie" name="especie" required>
-            </div>
-            <div class="form-group">
-                <label for="raca">Raça:</label>
-                <input type="text" id="raca" name="raca" required>
-            </div>
-            <div class="form-group">
-                <label for="idade">Idade:</label>
-                <input type="number" id="idade" name="idade" required>
-            </div>
-            <div class="form-group">
-                <label for="porte">Porte:</label>
-                <select id="porte" name="porte" required>
-                    <option value="Pequeno">Pequeno</option>
-                    <option value="Médio">Médio</option>
-                    <option value="Grande">Grande</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="cor">Cor:</label>
-                <input type="text" id="cor" name="cor" required>
-            </div>
-            <div class="form-group">
-                <label for="descricao">Descrição:</label>
-                <textarea id="descricao" name="descricao" rows="5" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="foto">Foto:</label>
-                <input type="file" id="foto" name="foto">
-            </div>
-            <div class="form-group">
-                <label for="abrigo">Abrigo:</label>
-                <input type="text" id="abrigo" name="abrigo" required>
-            </div>
-            <div class="buttons">
-                <button type="submit" class="btn-save">Salvar</button>
-                <a href="{% url 'animal_list' %}" class="btn-cancel">Cancelar</a>
-            </div>
-        </form>
-    </div>
+           <label for="especie">Espécie:</label>
+           <input type="text" id="especie" name="especie">
+
+           <label for="raca">Raça:</label>
+           <input type="text" id="raca" name="raca">
+
+           <label for="age">Idade:</label>
+           <input type="number" id="age" name="age">
+
+           <label for="porte">Porte:</label>
+           <input type="text" id="porte" name="porte">
+
+           <label for="colour">Cor:</label>
+           <input type="text" id="colour" name="colour">
+
+           {% comment %} <label for="description">Descrição:</label> {% endcomment %}
+           {% comment %} <input type="text" id="description" name="description"> {% endcomment %}
+
+           <label for="shelter">Abrigo:</label>
+           <input type="text" id="shelter" name="shelter">
+
+            <label for="description">Descrição:</label>
+            <textarea id="description" name="description">{{ animal.description }}</textarea>
+
+           {% comment %} <label>Foto Atual:</label> {% endcomment %}
+           <div class="animal-image">
+               {% if animal.photo %}
+                   <img src="{{ animal.photo.url }}" alt="Foto de {{ animal.name }}">
+               {% else %}
+                   <p>Nenhuma foto disponível.</p>
+               {% endif %}
+           </div>
+
+           <label for="photo">Cadastrar Foto:</label>
+           <input type="file" name="photo" id="photo">
+
+           <div class="actions">
+               <button type="submit">Salvar Alterações</button>
+               <button type="button" class="cancel" onclick="window.location.href='{% url 'animal_list' %}'">Cancelar</button>
+           </div>
+       </form>
+   </div>
 </body>
 </html>

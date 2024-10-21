@@ -1,88 +1,121 @@
-/* Container principal */
-.container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+/* Estilos Gerais */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Título */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
 h1 {
   text-align: center;
-  color: #5b9d87;
+  color: #4CAF50;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
-/* Estilo dos rótulos e inputs */
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="file"],
-input[type="email"],
-textarea,
-select {
+/* Estilos dos Inputs */
+input[type="text"], 
+input[type="number"], 
+select, 
+textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  margin: 10px 0 20px 0;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #fff;
+  box-sizing: border-box;
   font-size: 16px;
 }
 
-input[type="email"] {
-  /* Estilos específicos para o campo de e-mail */
-  border: 2px solid #a6a6a6;
-  background-color: #f9f9f9;
-}
-
-
 textarea {
+  height: 100px;
   resize: none;
 }
 
-/* Botões */
-.buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.btn-save {
-  background-color: #5b9d87;
-  color: white;
+/* Estilos Botões */
+button {
+  font-size: 16px;
   padding: 10px 20px;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  border: none;
 }
 
-.btn-save:hover {
-  background-color: #469973;
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
-.btn-cancel {
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+button[type="reset"] {
   background-color: #f44336;
   color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.btn-cancel:hover {
+button[type="reset"]:hover {
   background-color: #e53935;
+}
+
+/* Estilo do Input de Foto */
+input[type="file"] {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Estilo Específico para o Select */
+select {
+  background-color: #f2f2f2;
+}
+
+/* Ajuste para Labels */
+label {
+  font-size: 16px;
+  color: #555;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+/* Estilo para cor */
+input[name="Colour"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #f0fff0;
+  border-radius: 5px;
+}
+
+/* Estilo para Porte */
+input[name="Porte"] {
+  background-color: #ffebcc;
+}
+
+/* Espaço entre botões */
+button {
+  margin-right: 10px;
 }

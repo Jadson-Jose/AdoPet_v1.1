@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Animal
-from .forms import AnimalForms
+from .forms import AnimalForm
 
 
 def animal_list(request):
@@ -15,24 +15,25 @@ def detail_animal(request, pk):
 
 def create_animal(request):
     if request.method == 'POST':
-        form = AnimalForms(request.POST, request.FILES)
+        form = AnimalForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('animals_list')
+            return redirect('animal_list')
+        
     else:
-        form = AnimalForms()
+        form = AnimalForm()
     return render(request, 'create_animal.html', {'form': form})
 
 
 def edit_animal(request, pk):
     animal = get_object_or_404(Animal, pk=pk)
     if request.method == 'POST':
-        form = AnimalForms(request.POST, request.FILES, instance=animal)
+        form = AnimalForm(request.POST, request.FILES, instance=animal)
         if form.is_valid():
             form.save()
             return redirect('animal_list')
     else:
-        form = AnimalForms(instance=animal)
+        form = AnimalForm(instance=animal)
     return render(request, 'edit_animal.html', {'form': form, 'animal':animal})
 
 

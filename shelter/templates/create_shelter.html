@@ -10,17 +10,17 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Cadastrar Novo Adotante</h1>
+            <h1>Cadastrar Novo Abrigo</h1>
         </div>
 
         <div class="form-container">
-            <form method="post" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
                 
                 <div>
                     <button type="submit" class="btn-submit">Cadastrar</button>
-                    <a href="{% url 'adopter_list' %}" class="btn-back">Cancelar</a>
+                    <a href="{% url 'shelter_list' %}" class="btn-back">Cancelar</a>
                 </div>
             </form>
         </div>

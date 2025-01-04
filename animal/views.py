@@ -17,6 +17,7 @@ def create_animal(request):
     if request.method == 'POST':
         form = AnimalForm(request.POST, request.FILES)
         if form.is_valid():
+
             form.save()
             return redirect('animal_list')
 
@@ -44,3 +45,5 @@ def delete_animal(request, pk):
         animal.delete()
         return redirect('animal_list')
     return render(request, 'confirm_delete.html', {'animal': animal})
+
+# TODO Fazer a lógica de paginação da listagem dos pets 

@@ -4,11 +4,20 @@ from shelter.models import Shelter
 
 
 class Animal (models.Model):
+    
+    PORTE_CHOICES = [
+        ('P', 'Pequeno'),
+        ('M', 'Medio'),
+        ('G', 'Grande'),
+    ]
+    
+    
+    
     name = models.CharField(max_length=100)
     especie = models.CharField(max_length=50)  # Exemplo: Cachorro, Gato
     raca = models.CharField(max_length=50, blank=True, null=True)
     age = models.IntegerField()  # Em anos
-    porte = models.CharField(max_length=20)  # Exemplo: Pequeno, Médio, Grande
+    porte = models.CharField(max_length=1, choices=PORTE_CHOICES)  # Exemplo: Pequeno, Médio, Grande
     colour = models.CharField(max_length=30, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     photo = models.ImageField(

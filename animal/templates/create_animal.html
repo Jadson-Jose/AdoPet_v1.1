@@ -18,13 +18,14 @@
 
                 <!-- Renderize os campos manualmente -->
                 <div class="form-group">
-                    <label for="id_name">Nome do Animal:</label>
+                    <label for="id_name">Nome:</label>
                     {{ form.name }}
                 </div>
 
                 <div class="form-group">
                     <label for="id_especie">Espécie:</label>
                     {{ form.especie }}
+                    # TODO O campo espécie é obrigatório fazer a logica pois não aparece que está dando erro
                 </div>
 
                 <div class="form-group">
@@ -52,17 +53,16 @@
                     {{ form.description }}
                 </div>
 
-                <div class="form-group">
+                {% comment %} <div class="form-group">
                     <label for="id_date_rescue">Data do Resgate:</label>
                     {{ form.date_rescue }}
-                </div>
-
+                </div> {% endcomment %}
+                # TODO Falta fazer a lógica da data de resgate do pet muito importante
 
                 <div class="form-group">
                     <label for="id_photo">Foto:</label>
                     {{ form.photo }}
                 </div>
-
 
 
                 <div class="form-actions">

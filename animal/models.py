@@ -3,6 +3,8 @@ from django.db import models
 from shelter.models import Shelter
 
 
+# TODO Melhorar o TextChoices para uma maior organização e legibilidade da Model
+
 class Animal (models.Model):
     
     PORTE_CHOICES = [

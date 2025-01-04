@@ -7,6 +7,21 @@ class AnimalForm(forms.ModelForm):
         model = Animal
         fields = ['name', 'especie', 'raca', 'age', 'porte',
                   'colour', 'description', 'photo', 'shelter']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'especie': forms.TextInput(attrs={'class': 'form-control'}),
+            'raca': forms.TextInput(attrs={'class': 'form-control'}),
+            'age': forms.NumberInput(attrs={'class': 'form-control'}),
+            'porte': forms.Select(attrs={'class': 'form-control'}),
+            'colour': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control'}),
+            'photo': forms.FileInput(attrs={'class': 'form-control'}),
+            'shelter': forms.Select(attrs={'class': 'form-control'}),
+            'date_rescue': forms.DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date'  
+            }),
+        }
 
     # Personality validation of the age
 

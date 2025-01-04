@@ -1,12 +1,11 @@
 {% load static %}
 
-
-
 {% block head %}
-<link rel="stylesheet" href="{% static 'animal_list/css/edit_animal.css' %}">
+<link rel="stylesheet" href="{% static 'animal_list/css/create_animal.css' %}">
 {% endblock head %}
 
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -16,9 +15,57 @@
         <div class="form-container">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.as_p }}
-                
-                <div>
+
+                <!-- Renderize os campos manualmente -->
+                <div class="form-group">
+                    <label for="id_name">Nome do Animal:</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_especie">Espécie:</label>
+                    {{ form.especie }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_raca">Raça:</label>
+                    {{ form.raca }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_age">Idade:</label>
+                    {{ form.age }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_porte">Porte:</label>
+                    {{ form.porte }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_colour">Cor:</label>
+                    {{ form.colour }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_description">Descrição:</label>
+                    {{ form.description }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_date_rescue">Data do Resgate:</label>
+                    {{ form.date_rescue }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="id_photo">Foto:</label>
+                    {{ form.photo }}
+                </div>
+
+
+
+                <div class="form-actions">
                     <button type="submit" class="btn-submit">Cadastrar</button>
                     <a href="{% url 'animal_list' %}" class="btn-back">Cancelar</a>
                 </div>
@@ -26,4 +73,5 @@
         </div>
     </div>
 </body>
+
 </html>

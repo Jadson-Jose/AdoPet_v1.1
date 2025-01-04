@@ -46,6 +46,18 @@ select {
   background-color: #f9f9f9;
 }
 
+input[type="date"].form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #fff;
+  cursor: pointer;
+}
+
 .actions {
   display: flex;
   justify-content: flex-start; /* Mantém os botões alinhados à esquerda */

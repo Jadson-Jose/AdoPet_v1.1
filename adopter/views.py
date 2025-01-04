@@ -21,7 +21,7 @@ def create_adopter(request):
             return redirect('adopter_list')
     else:
         form = AdopterForm()
-    return render(request, 'create_Adopter.html', {'form': form})
+    return render(request, 'create_adopter.html', {'form': form})
 
 
 def edit_adopter(request, pk):

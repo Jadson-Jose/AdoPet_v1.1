@@ -19,7 +19,7 @@ def create_animal(request):
         if form.is_valid():
             form.save()
             return redirect('animal_list')
-        
+
     else:
         form = AnimalForm()
     return render(request, 'create_animal.html', {'form': form})
@@ -34,8 +34,8 @@ def edit_animal(request, pk):
             return redirect('animal_list')
     else:
         form = AnimalForm(instance=animal)
-    return render(request, 'edit_animal.html', {'form': form, 'animal':animal})
-
+    return render(request, 'edit_animal.html',
+                  {'form': form, 'animal': animal})
 
 
 def delete_animal(request, pk):

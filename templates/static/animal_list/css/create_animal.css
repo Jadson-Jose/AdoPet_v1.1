@@ -1,121 +1,94 @@
-/* Estilos Gerais */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f9fc;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* Estilo geral para o container do formulário */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
 }
 
-form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  width: 100%;
-}
-
-h1 {
+/* Estilo para o cabeçalho */
+.header h1 {
   text-align: center;
-  color: #4CAF50;
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #5b9d87; /* Cor suave relacionada ao mundo pet */
+  margin-bottom: 30px;
 }
 
-/* Estilos dos Inputs */
-input[type="text"], 
-input[type="number"], 
-select, 
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0 20px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 16px;
+/* Estilo para os grupos de formulários */
+.form-group {
+    margin-bottom: 15px;
 }
 
-textarea {
-  height: 100px;
-  resize: none;
+/* Estilo para os rótulos */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
 }
 
-/* Estilos Botões */
-button {
-  font-size: 16px;
+/* Estilo para os campos de entrada */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Estilo para o campo de texto maior (Textarea) */
+.form-control.textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Estilo para os botões */
+.btn-submit {
+  background-color: #4caf50;
+  color: white;
   padding: 10px 20px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  border: none;
+  transition: background-color 0.3s;
 }
 
-button[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  transition: background-color 0.3s ease;
+.btn-submit:hover {
+    background-color: #388e3c;
 }
 
-button[type="submit"]:hover {
-  background-color: #45a049;
+.btn-back {
+    display: inline-block;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-button[type="reset"] {
-  background-color: #f44336;
-  color: white;
-  transition: background-color 0.3s ease;
+.btn-back:hover {
+    background-color: #e63946;
 }
 
-button[type="reset"]:hover {
-  background-color: #e53935;
+/* Estilo para as ações do formulário (botões alinhados) */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 }
 
-/* Estilo do Input de Foto */
-input[type="file"] {
-  display: block;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-/* Estilo Específico para o Select */
-select {
-  background-color: #f2f2f2;
-}
-
-/* Ajuste para Labels */
-label {
-  font-size: 16px;
-  color: #555;
-}
-
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: #4CAF50;
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
-}
-
-/* Estilo para cor */
-input[name="Colour"] {
-  width: 100%;
-  padding: 10px;
-  background-color: #f0fff0;
-  border-radius: 5px;
-}
-
-/* Estilo para Porte */
-input[name="Porte"] {
-  background-color: #ffebcc;
-}
-
-/* Espaço entre botões */
-button {
-  margin-right: 10px;
+/* Ajuste para o botão de upload */
+input[type="file"].form-control {
+    padding: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
 }
